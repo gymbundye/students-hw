@@ -1,12 +1,38 @@
-
+import studentData from "../Data";
 import React,{useState} from "react";
-function Student() {
-    const [studentData, setStudentData]= useState({})
+
+function Student(props) {
+    const [studentData, setStudentData, index] = useState(
+        [{
+        name: "",
+        bio: "",
+        scores: "",
+        date: ""
+        }
+    ]) ;
+
     return (
-      <div className="Student">
-      <h1>test</h1>
-      </div>
+        
+
+        <div key={index} className="Student">   
+
+       <ul>
+           
+           {setStudentData.map((studentData)=>([
+               <div key={props.studentData.data}>
+                   <p>{props.studentData.name}</p>
+                   <p>{props.studentData.bio}</p>
+                   <p>{props.studentData.scores}</p>
+                   <p>{props.studentData.date}</p>
+               </div>
+            ] ))}
+       </ul>
+       )
     );
-  }
-  
-  export default Student;
+        </div>)
+}
+export default Student
+    
+    
+            
+
